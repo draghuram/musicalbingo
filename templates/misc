@@ -1,0 +1,8 @@
+
+            Number of chits required (&lt;= 120) <input name="number_of_chits" type="text">
+
+            </p><p> Table size (rows x columns)
+	<select name="mxn">
+    <option value="5x3" selected="selected">5x3
+    </option><option value="5x4"> 5x4
+    </option></select>
