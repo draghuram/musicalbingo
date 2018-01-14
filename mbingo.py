@@ -13,6 +13,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 static_dir = os.path.join(os.path.dirname(__file__), 'static')
+games_dir = os.path.join(os.path.dirname(__file__), 'games')
 
 @app.route("/")
 def index():
@@ -68,7 +69,7 @@ def genchits_for_game(game):
 
 @app.route("/genchit/<game>", methods=['GET'])
 def genchit_for_game(game):
-    titles_fname = os.path.join(static_dir, game + ".txt")
+    titles_fname = os.path.join(games_dir, game + ".txt")
     return _genchits(open(titles_fname, "rb"), count=1)
 
 @app.route("/genchits", methods=['GET', 'POST'])
@@ -97,7 +98,7 @@ def _genchits(titles_file, count=48):
         for j in range(rows):
             out.write('<tr align=left>')
             for k in range(cols):
-                out.write('<td>[&nbsp;&nbsp]&nbsp;&nbsp;%s</td>' % entries.pop().decode('utf-8'))
+                out.write('<td><input type="checkbox">&nbsp;&nbsp;%s</td>' % entries.pop().decode('utf-8'))
             out.write('</tr>')
         out.write('</table><br><br>')
     out.write('</body><html>\n')
