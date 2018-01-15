@@ -25,7 +25,7 @@ def newgame():
 
 @app.route("/genmlist/<game>", methods=['GET'])
 def genmlist_for_game(game):
-    titles_fname = os.path.join(static_dir, game + ".txt")
+    titles_fname = os.path.join(games_dir, game + ".txt")
     return _genmlist(open(titles_fname, "rb"))
 
 @app.route("/genmlist", methods=['GET', 'POST'])
