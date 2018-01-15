@@ -62,11 +62,6 @@ def _genmlist(titles_file):
     
     return response
 
-@app.route("/genchits/<game>", methods=['GET'])
-def genchits_for_game(game):
-    titles_fname = os.path.join(static_dir, game + ".txt")
-    return _genchits(open(titles_fname, "rb"))
-
 @app.route("/genchit/<game>", methods=['GET'])
 def genchit_for_game(game):
     titles_fname = os.path.join(games_dir, game + ".txt")
