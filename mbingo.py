@@ -73,7 +73,7 @@ def genchit_for_game(game):
     return _genchits(open(titles_fname, "rb"), count=1)
 
 @app.route("/genchits/<game>", methods=['GET'])
-def genchit_for_game(game):
+def genchits_for_game(game):
     titles_fname = os.path.join(games_dir, game + ".txt")
     return _genchits(open(titles_fname, "rb"))
 
