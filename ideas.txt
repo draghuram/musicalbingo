@@ -1,0 +1,28 @@
+
+- Play youtube videos in silent mode and ask people to guess.
+
+- Play middle of the song and ask them to guess.
+
+- Play instrumental version and ask them to guess.
+
+- Compile information about each song and ask trivia questions or talk
+  about the details.
+
+- Select theme based songs.
+
+- Generate chits with background image. Or otherwise, brand the
+  chits. Provide info such as phone numbers and contact details.
+
+- Each chit can have unique ID with which the program that runs the
+  game can quickly identify if any row/columns are full.
+
+- We can generate chits with known overlaps. For example, we can
+  generate in such a way that no two chits have no column with same
+  songs. Similarly, for the whole chit.
+
+- Develop a Python UI that runs locally to run the game.
+
+- Charging for chits
+
+  - We can use a system like Venmo to transfer money for chits as well
+    as for sending gifts. Amazon gift cards might work as well.
