@@ -1,4 +1,3 @@
-import cgi
 import datetime
 import wsgiref.handlers
 import os
