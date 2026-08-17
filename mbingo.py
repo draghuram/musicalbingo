@@ -38,6 +38,7 @@ def genmlist():
 
 def _genmlist(titles_file):
     titles = [x.strip() for x in titles_file.readlines()]
+    titles = [x for x in titles if x]
 
     titles.sort()
     cols = 2
@@ -47,12 +48,15 @@ def _genmlist(titles_file):
 
     output.write('<html><body>\n')
     output.write('<table border align=center>')
+    i = 1
     while titles:
         output.write('<tr align=left>')
         for k in range(cols):
             if titles:
-                output.write('<td>[&nbsp;&nbsp]&nbsp;&nbsp;%s</td>' % titles.pop(0).decode('utf-8'))
+                output.write('<td>%d&nbsp;[&nbsp;&nbsp]&nbsp;&nbsp;%s</td>' % (i, titles.pop(0).decode('utf-8')))
+                i += 1
         output.write('</tr>')
+
     output.write('</table><br><br>')
     output.write('</body><html>\n')
 
