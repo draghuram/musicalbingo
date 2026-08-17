@@ -1,4 +1,4 @@
-# import cgi
+import cgi
 import datetime
 import wsgiref.handlers
 import os
@@ -48,14 +48,12 @@ def _genmlist(titles_file):
 
     output.write('<html><body>\n')
     output.write('<table border align=center>')
-    i = 1
     while titles:
         output.write('<tr align=left>')
         for k in range(cols):
             if titles:
-                # output.write(f'<td>%d&nbsp;[&nbsp;&nbsp;]&nbsp;&nbsp;%s</td>' % (i, titles.pop(0).decode('utf-8')))
+                output.write('<td>[&nbsp;&nbsp]&nbsp;&nbsp;%s</td>' % titles.pop(0).decode('utf-8'))
         output.write('</tr>')
-        i += 1
     output.write('</table><br><br>')
     output.write('</body><html>\n')
 
