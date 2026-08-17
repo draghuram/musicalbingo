@@ -37,10 +37,11 @@ def genmlist():
     return _genmlist(titles_file)
 
 def _genmlist(titles_file):
+    # These 3 lines must be same as in _genchits.
     titles = [x.strip() for x in titles_file.readlines()]
     titles = [x for x in titles if x]
-
     titles.sort()
+
     cols = 2
 
     buffer = io.BytesIO()
@@ -85,7 +86,14 @@ def genchits():
     return _genchits(titles_file)
 
 def _genchits(titles_file, count=48):
+    # These 3 lines must be same as in _genmlist.
     titles = [x.strip() for x in titles_file.readlines()]
+    titles = [x for x in titles if x]
+    titles.sort()
+
+    index_vals = {}
+    for i, title in enumerate(titles):
+        index_vals[title.decode('utf-8')] = i+1
 
     num_chits = count
     rows = 4
@@ -101,7 +109,8 @@ def _genchits(titles_file, count=48):
         for j in range(rows):
             out.write('<tr align=left>')
             for k in range(cols):
-                out.write('<td><input type="checkbox">&nbsp;&nbsp;%s</td>' % entries.pop().decode('utf-8'))
+                title = entries.pop().decode('utf-8')
+                out.write('<td><input type="checkbox">&nbsp;&nbsp;%s (%d) </td>' % (title, index_vals[title]))
             out.write('</tr>')
         out.write('</table><br><br>')
     out.write('</body><html>\n')
